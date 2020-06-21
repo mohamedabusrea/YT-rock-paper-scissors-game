@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=id, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__content">
+                <div class="modal__header">
+                    <p class="modal__text">Rules</p>
+                    <img class="modal__closeIcon" src="./images/icon-close.svg" alt="close icon">
+                </div>
+                <img src="./images/image-rules.svg" alt="rules image">
+            </div>
+        </div>
+        <div class="container__content">
+            <div class="container__header">
+                <p class="container__logo">
+                    <span>
+                        Rock
+                    </span>
+                    <span>
+                        Paper
+                    </span>
+                    <span>
+                        Scissors
+                    </span>
+                </p>
+                <div class="container__scoreContent">
+                    <div class="container__scoreText">score</div>
+                    <div class="container__scoreNumber">0</div>
+                </div>
+            </div>
+            <div class="container__gameContent">
+                <div class="container__gameChoice container__gameChoice--isPaper">
+                    <div class="container__gameChoiceImage">
+                        <img src="./images/icon-paper.svg" alt="paper choice">
+                    </div>
+                </div>
+                <div class="container__gameChoice container__gameChoice--isScissors">
+                    <div class="container__gameChoiceImage">
+                        <img src="./images/icon-scissors.svg" alt="scissors choice">
+                    </div>
+                </div>
+                <div class="container__gameChoice container__gameChoice--isRock">
+                    <div class="container__gameChoiceImage">
+                        <img src="./images/icon-rock.svg" alt="rock choice">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  class="container__rules" onclick="rulesButtonEvent">
+            Rules
+        </div>
+    </div>
+</body>
+
+<script src="./scripts.js"></script>
+</html>
