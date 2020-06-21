@@ -54,7 +54,7 @@
         border-radius: var(--default-border-radius);
         padding: var(--default-padding);
         justify-content: space-between;
-        margin-bottom: var(--default-padding);
+        align-items: center;
     }
 
     &__logo {
@@ -268,6 +268,7 @@
     &__content {
         display: flex;
         flex-direction: column;
+        margin: var(--default-padding);
         border-radius: var(--default-border-radius);
         padding: var(--default-padding);
         background-color: white;
@@ -288,5 +289,28 @@
         justify-content: space-between;
         margin-bottom: var(--default-padding);
         cursor: pointer;
+    }
+
+    &__image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .container__logo {
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    .container__scoreNumber {
+        font-size: var(--font-size-large);
+    }
+
+    .container__gameContent {
+        transform: scale(.8);
+    }
+
+    .container__rules {
+        margin: auto;
     }
 }
