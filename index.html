@@ -39,20 +39,34 @@
                     <div class="container__scoreNumber">0</div>
                 </div>
             </div>
-            <div class="container__gameContent">
-                <div class="container__gameChoice container__gameChoice--isPaper">
-                    <div class="container__gameChoiceImage">
+            <div class="gameContent">
+                <!-- GAME BACKGROUND-->
+                <div class="gameContent__bg"></div>
+                <!-- GAME TEXT-->
+                <div class="gameContent__text gameContent__text--isYou">You Picked</div>
+                <div class="gameContent__text gameContent__text--isComputer">The house picked</div>
+                <!-- GAME CHOICES-->
+                <div class="gameContent__gameChoice gameContent__gameChoice--isPaper"
+                     data-choice="paper">
+                    <div class="gameContent__gameChoiceImage">
                         <img src="./images/icon-paper.svg" alt="paper choice">
                     </div>
                 </div>
-                <div class="container__gameChoice container__gameChoice--isScissors">
-                    <div class="container__gameChoiceImage">
+                <div class="gameContent__gameChoice gameContent__gameChoice--isScissors"
+                     data-choice="scissors">
+                    <div class="gameContent__gameChoiceImage">
                         <img src="./images/icon-scissors.svg" alt="scissors choice">
                     </div>
                 </div>
-                <div class="container__gameChoice container__gameChoice--isRock">
-                    <div class="container__gameChoiceImage">
+                <div class="gameContent__gameChoice gameContent__gameChoice--isRock"
+                     data-choice="rock">
+                    <div class="gameContent__gameChoiceImage">
                         <img src="./images/icon-rock.svg" alt="rock choice">
+                    </div>
+                </div>
+                <div class="gameContent__gameChoice gameContent__gameChoice--isComputer">
+                    <div class="gameContent__gameChoiceImage">
+                        <!-- <img src="./images/icon-rock.svg" alt="rock choice"> -->
                     </div>
                 </div>
             </div>
