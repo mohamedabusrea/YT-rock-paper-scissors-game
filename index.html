@@ -47,27 +47,32 @@
                 <div class="gameContent__text gameContent__text--isComputer">The house picked</div>
                 <!-- GAME CHOICES-->
                 <div class="gameContent__gameChoice gameContent__gameChoice--isPaper"
-                     data-choice="paper">
-                    <div class="gameContent__gameChoiceImage">
+                     data-choice="Paper">
+                    <div class="gameContent__gameChoiceImageContent">
                         <img src="./images/icon-paper.svg" alt="paper choice">
                     </div>
                 </div>
                 <div class="gameContent__gameChoice gameContent__gameChoice--isScissors"
-                     data-choice="scissors">
-                    <div class="gameContent__gameChoiceImage">
+                     data-choice="Scissors">
+                    <div class="gameContent__gameChoiceImageContent">
                         <img src="./images/icon-scissors.svg" alt="scissors choice">
                     </div>
                 </div>
                 <div class="gameContent__gameChoice gameContent__gameChoice--isRock"
-                     data-choice="rock">
-                    <div class="gameContent__gameChoiceImage">
+                     data-choice="Rock">
+                    <div class="gameContent__gameChoiceImageContent">
                         <img src="./images/icon-rock.svg" alt="rock choice">
                     </div>
                 </div>
                 <div class="gameContent__gameChoice gameContent__gameChoice--isComputer">
-                    <div class="gameContent__gameChoiceImage">
-                        <!-- <img src="./images/icon-rock.svg" alt="rock choice"> -->
+                    <div class="gameContent__gameChoiceImageContent">
+                        <span class="gameContent__countdownText"></span>
+                        <img class="gameContent__gameChoiceImage"/>
                     </div>
+                </div>
+                <div class="gameContent__resultContent">
+                    <span class="gameContent__resultText">You Win</span>
+                    <button class="gameContent__resultButton">Play again</button>
                 </div>
             </div>
         </div>

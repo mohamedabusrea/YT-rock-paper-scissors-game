@@ -19,6 +19,7 @@
   --game-choice-ratio: 160px;
   --timing-animation: .3s;
   --game-choice-x-position: 105px;
+  --animation-ratio: 1;
 }
 
 * {
@@ -49,6 +50,17 @@
 .container--isActive .modal {
   opacity: 1;
   visibility: visible;
+}
+
+.container--revealResult {
+  --animation-ratio: 1.6;
+}
+
+.container--revealResult .gameContent__resultContent {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .container__content {
@@ -83,6 +95,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: calc(var(--default-border-radius) * 2);
 }
 
 .container__logo {
@@ -138,16 +151,14 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: auto 0;
-  width: var(--game-content-width);
   width: 100%;
   height: var(--game-content-height);
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: all var(--timing-animation);
+  transition: all var(--timing-animation);
 }
 
 .gameContent--isActive .gameContent__gameChoice,
@@ -160,6 +171,13 @@
 .gameContent--isActive .gameContent__gameChoice--isComputer {
   opacity: 1;
   visibility: visible;
+}
+
+.gameContent--isLost {
+  -webkit-transition-delay: calc(var(--timing-animation) * 2);
+          transition-delay: calc(var(--timing-animation) * 2);
+  -webkit-filter: grayscale(1) opacity(0.7);
+          filter: grayscale(1) opacity(0.7);
 }
 
 .gameContent__bg {
@@ -181,13 +199,18 @@
 }
 
 .gameContent__text--isYou {
-  -webkit-transform: translate(calc(var(--game-choice-ratio) * -1));
-          transform: translate(calc(var(--game-choice-ratio) * -1));
+  -webkit-transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio) * -1), 0);
+          transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio) * -1), 0);
 }
 
 .gameContent__text--isComputer {
-  -webkit-transform: translate(var(--game-choice-ratio));
-          transform: translate(var(--game-choice-ratio));
+  -webkit-transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio)));
+          transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio)));
+}
+
+.gameContent__countdownText {
+  font-size: var(--font-size-2xLarge);
+  color: var(--color-dark-text);
 }
 
 .gameContent__gameChoice {
@@ -284,10 +307,8 @@
 .gameContent__gameChoice--isComputer {
   opacity: 0;
   visibility: hidden;
-  -webkit-filter: invert(0.5) opacity(0.2);
-          filter: invert(0.5) opacity(0.2);
-  -webkit-transform: scale(1.5) translate(var(--game-choice-x-position), 75px);
-          transform: scale(1.5) translate(var(--game-choice-x-position), 75px);
+  -webkit-transform: scale(1.5) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
+          transform: scale(1.5) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
   -webkit-transition: all var(--timing-animation);
   transition: all var(--timing-animation);
   pointer-events: none;
@@ -296,12 +317,12 @@
 .gameContent__gameChoice--isActive {
   opacity: 1 !important;
   visibility: visible !important;
-  -webkit-transform: scale(1.5) rotate(360deg) translate(calc(var(--game-choice-x-position) * -1), 75px);
-          transform: scale(1.5) rotate(360deg) translate(calc(var(--game-choice-x-position) * -1), 75px);
+  -webkit-transform: scale(1.5) rotate(360deg) translate(calc(var(--game-choice-x-position) * var(--animation-ratio) * -1), 75px);
+          transform: scale(1.5) rotate(360deg) translate(calc(var(--game-choice-x-position) * var(--animation-ratio) * -1), 75px);
   pointer-events: none;
 }
 
-.gameContent__gameChoiceImage {
+.gameContent__gameChoiceImageContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -320,7 +341,7 @@
   background-color: white;
 }
 
-.gameContent__gameChoiceImage:before {
+.gameContent__gameChoiceImageContent:before {
   content: '';
   position: absolute;
   left: 0;
@@ -329,6 +350,47 @@
   bottom: 0;
   border-radius: 50%;
   border-top: 6px solid rgba(0, 0, 0, 0.1);
+}
+
+.gameContent__resultContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  -webkit-transition: all var(--timing-animation);
+  transition: all var(--timing-animation);
+}
+
+.gameContent__resultText {
+  font-size: var(--font-size-2xLarge);
+  margin-bottom: var(--default-border-radius);
+}
+
+.gameContent__resultButton {
+  border: none;
+  background-color: white;
+  border-radius: var(--default-border-radius);
+  padding: calc(var(--default-border-radius) * 2) calc(var(--default-border-radius) * 6);
+  color: var(--color-dark-text);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-normal);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 1;
 }
 
 .modal {
