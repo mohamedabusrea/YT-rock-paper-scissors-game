@@ -37,7 +37,7 @@ const showResult = (userChoice, computerChoice) => {
     }
     else { //win condition
         resultTextElement.textContent = 'You win';
-        setTimeout(() => player.load('https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json'), 300);
+        setTimeout(() => player.load('https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json'), 900);
         scoreNumberElement.textContent = score + 1;
     }
 };
