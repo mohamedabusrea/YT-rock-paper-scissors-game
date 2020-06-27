@@ -47,7 +47,7 @@ const playAgainEvent = () => {
 
     containerElement.classList.remove(`container--revealResult`);
     gameChoiceComputerElement.classList.remove(`gameContent__gameChoice--is${randomResult}`);
-    gameChoiceImageElement.removeAttribute('src');
+    gameChoiceImageElement.setAttribute('src', '');
     gameContentElement.classList.remove('gameContent--isActive', 'gameContent--isLost');
     activeChoiceElement.classList.remove('gameContent__gameChoice--isActive');
 };
@@ -57,7 +57,7 @@ const startCountdown = () => {
     countdown -= 1;
 
     if (countdown) { //start the countdown until we reach 0
-        setTimeout(() => startCountdown(), 800);
+        setTimeout(() => startCountdown(), 600);
     }
     else { //select random choice when we reach 0
         const selectedGameChoiceElement = document.querySelector('.gameContent__gameChoice--isActive');
