@@ -1,3 +1,4 @@
+@import './mixins.scss';
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
 
 :root {
@@ -20,11 +21,18 @@
     --game-choice-ratio: 160px;
     --timing-animation: .3s;
     --game-choice-x-position: 105px;
+    --game-choice-text-x-position: 160px;
     --animation-ratio: 1;
+    --game-choice-active-scale: 1.5;
+    --game-choice-text-ratio: 1;
 }
 
 * {
     box-sizing: border-box;
+}
+
+img[src=''] {
+    display: none;
 }
 
 .container {
@@ -46,12 +54,19 @@
     }
 
     &--revealResult {
-        --animation-ratio: 1.6;
+        @include desktop {
+            --animation-ratio: 1.6;
+        }
 
         .gameContent__resultContent {
             opacity: 1;
             visibility: visible;
             transform: scale(1);
+
+            @include mobile {
+                margin-bottom: -80px;
+                justify-content: flex-end;
+            }
         }
     }
 
@@ -116,6 +131,10 @@
         border: 2px solid var(--color-header-outline);
         border-radius: var(--default-border-radius);
         cursor: pointer;
+
+        @include mobile {
+            margin: auto;
+        }
     }
 }
 
@@ -128,6 +147,12 @@
     justify-content: space-evenly;
     transition: all var(--timing-animation);
 
+    @include mobile {
+        --game-choice-active-scale: 1.2;
+        --game-choice-text-ratio: .8;
+        margin-top: 0;
+        transform: scale(.9);
+    }
 
     &--isActive {
 
@@ -166,11 +191,11 @@
         visibility: hidden;
 
         &--isYou {
-            transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio) * -1), 0);
+            transform: translate(calc(var(--game-choice-ratio) * var(--game-choice-text-ratio) * -1), 0);
         }
 
         &--isComputer {
-            transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio)));
+            transform: translate(calc(var(--game-choice-ratio) * var(--game-choice-text-ratio)));
         }
     }
 
@@ -264,7 +289,7 @@
             opacity: 0;
             visibility: hidden;
             // filter: invert(0.5) opacity(0.2);
-            transform: scale(1.5) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
+            transform: scale(var(--game-choice-active-scale)) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
             transition: all var(--timing-animation);
             pointer-events: none;
         }
@@ -272,7 +297,7 @@
         &--isActive {
             opacity: 1 !important;
             visibility: visible !important;
-            transform: scale(1.5) rotate(360deg) translate(calc(var(--game-choice-x-position) * var(--animation-ratio) * -1), 75px);
+            transform: scale(var(--game-choice-active-scale)) rotate(360deg) translate(calc(var(--game-choice-x-position) * var(--animation-ratio) * -1), 75px);
             pointer-events: none;
         }
     }
@@ -387,17 +412,3 @@
         width: 100%;
     }
 }
-
-@media (max-width: 600px) {
-    .gameContent {
-        transform: scale(.85);
-    }
-
-    .container__rules {
-        margin: auto;
-    }
-}
-
-//todo refactor css
-//todo refactor js
-//todo shoot short video and make a post on twitter

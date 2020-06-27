@@ -3,6 +3,7 @@ let randomResult;
 const gameChoicesArray = ['Paper', 'Scissors', 'Rock'];
 const containerElement = document.querySelector('.container');
 const rulesElement = document.querySelector('.container__rules');
+const scoreNumberElement = document.querySelector('.container__scoreNumber');
 const modalOverlayElement = document.querySelector('.modal__overlay');
 const closeElement = document.querySelector('.modal__closeIcon');
 const gameContentElement = document.querySelector('.gameContent');
@@ -12,9 +13,9 @@ const gameChoiceComputerElement = document.querySelector('.gameContent__gameChoi
 const countdownTextElement = document.querySelector('.gameContent__countdownText');
 const resultButtonElement = document.querySelector('.gameContent__resultButton');
 const resultTextElement = document.querySelector('.gameContent__resultText');
-const scoreNumberElement = document.querySelector('.container__scoreNumber');
 const player = document.querySelector('lottie-player');
 
+//FUNCTIONS
 const getRandomNumber = () => Math.floor(Math.random() * 3);
 
 const rulesModalEvent = () => containerElement.classList.toggle('container--isActive');

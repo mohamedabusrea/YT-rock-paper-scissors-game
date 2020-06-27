@@ -19,12 +19,19 @@
   --game-choice-ratio: 160px;
   --timing-animation: .3s;
   --game-choice-x-position: 105px;
+  --game-choice-text-x-position: 160px;
   --animation-ratio: 1;
+  --game-choice-active-scale: 1.5;
+  --game-choice-text-ratio: 1;
 }
 
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+img[src=''] {
+  display: none;
 }
 
 .container {
@@ -53,7 +60,13 @@
 }
 
 .container--revealResult {
-  --animation-ratio: 1.6;
+  /*target tablet and desktop screens*/
+}
+
+@media (min-width: 600px) {
+  .container--revealResult {
+    --animation-ratio: 1.6;
+  }
 }
 
 .container--revealResult .gameContent__resultContent {
@@ -61,6 +74,15 @@
   visibility: visible;
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+@media (max-width: 599px) {
+  .container--revealResult .gameContent__resultContent {
+    margin-bottom: -80px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
 }
 
 .container__content {
@@ -146,6 +168,12 @@
   cursor: pointer;
 }
 
+@media (max-width: 599px) {
+  .container__rules {
+    margin: auto;
+  }
+}
+
 .gameContent {
   position: relative;
   display: -webkit-box;
@@ -159,6 +187,16 @@
           justify-content: space-evenly;
   -webkit-transition: all var(--timing-animation);
   transition: all var(--timing-animation);
+}
+
+@media (max-width: 599px) {
+  .gameContent {
+    --game-choice-active-scale: 1.2;
+    --game-choice-text-ratio: .8;
+    margin-top: 0;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
 }
 
 .gameContent--isActive .gameContent__gameChoice,
@@ -199,13 +237,13 @@
 }
 
 .gameContent__text--isYou {
-  -webkit-transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio) * -1), 0);
-          transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio) * -1), 0);
+  -webkit-transform: translate(calc(var(--game-choice-ratio) * var(--game-choice-text-ratio) * -1), 0);
+          transform: translate(calc(var(--game-choice-ratio) * var(--game-choice-text-ratio) * -1), 0);
 }
 
 .gameContent__text--isComputer {
-  -webkit-transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio)));
-          transform: translate(calc(var(--game-choice-ratio) * var(--animation-ratio)));
+  -webkit-transform: translate(calc(var(--game-choice-ratio) * var(--game-choice-text-ratio)));
+          transform: translate(calc(var(--game-choice-ratio) * var(--game-choice-text-ratio)));
 }
 
 .gameContent__countdownText {
@@ -307,8 +345,8 @@
 .gameContent__gameChoice--isComputer {
   opacity: 0;
   visibility: hidden;
-  -webkit-transform: scale(1.5) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
-          transform: scale(1.5) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
+  -webkit-transform: scale(var(--game-choice-active-scale)) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
+          transform: scale(var(--game-choice-active-scale)) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
   -webkit-transition: all var(--timing-animation);
   transition: all var(--timing-animation);
   pointer-events: none;
@@ -317,8 +355,8 @@
 .gameContent__gameChoice--isActive {
   opacity: 1 !important;
   visibility: visible !important;
-  -webkit-transform: scale(1.5) rotate(360deg) translate(calc(var(--game-choice-x-position) * var(--animation-ratio) * -1), 75px);
-          transform: scale(1.5) rotate(360deg) translate(calc(var(--game-choice-x-position) * var(--animation-ratio) * -1), 75px);
+  -webkit-transform: scale(var(--game-choice-active-scale)) rotate(360deg) translate(calc(var(--game-choice-x-position) * var(--animation-ratio) * -1), 75px);
+          transform: scale(var(--game-choice-active-scale)) rotate(360deg) translate(calc(var(--game-choice-x-position) * var(--animation-ratio) * -1), 75px);
   pointer-events: none;
 }
 
@@ -469,15 +507,5 @@
 
 .modal__image {
   width: 100%;
-}
-
-@media (max-width: 600px) {
-  .gameContent {
-    -webkit-transform: scale(0.85);
-            transform: scale(0.85);
-  }
-  .container__rules {
-    margin: auto;
-  }
 }
 /*# sourceMappingURL=styles.css.map */
