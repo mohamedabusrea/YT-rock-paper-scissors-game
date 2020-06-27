@@ -1,6 +1,5 @@
 let countdown = 4;
 let randomResult;
-let score = parseInt(localStorage.getItem('score')) || 0;
 const gameChoicesArray = ['Paper', 'Scissors', 'Rock'];
 const containerElement = document.querySelector('.container');
 const rulesElement = document.querySelector('.container__rules');
@@ -14,19 +13,19 @@ const countdownTextElement = document.querySelector('.gameContent__countdownText
 const resultButtonElement = document.querySelector('.gameContent__resultButton');
 const resultTextElement = document.querySelector('.gameContent__resultText');
 const scoreNumberElement = document.querySelector('.container__scoreNumber');
+const player = document.querySelector('lottie-player');
 
-scoreNumberElement.textContent = score;
-
-const getRandomNumber = () => Math.floor((Math.random() * 3) + 0);
+const getRandomNumber = () => Math.floor(Math.random() * 3);
 
 const rulesModalEvent = () => containerElement.classList.toggle('container--isActive');
 
 const showResult = (userChoice, computerChoice) => {
-    score = parseInt(scoreNumberElement.textContent);
+    const score = parseInt(scoreNumberElement.textContent);
 
     if (userChoice === computerChoice) { //draw condition
         resultTextElement.textContent = 'Draw';
-    } else if (
+    }
+    else if (
         (userChoice === gameChoicesArray[0] && computerChoice === gameChoicesArray[1]) ||
         (userChoice === gameChoicesArray[1] && computerChoice === gameChoicesArray[2]) ||
         (userChoice === gameChoicesArray[2] && computerChoice === gameChoicesArray[0])
@@ -34,12 +33,13 @@ const showResult = (userChoice, computerChoice) => {
         resultTextElement.textContent = 'You lose';
         gameContentElement.classList.add('gameContent--isLost');
         (score > 0) && (scoreNumberElement.textContent = score - 1);
-    } else { //rest of conditions
-        resultTextElement.textContent = 'You win';
-        scoreNumberElement.textContent = score + 1;
-        localStorage.setItem('score', `${score + 1}`); //save data in localstorage
     }
-}
+    else { //win condition
+        resultTextElement.textContent = 'You win';
+        setTimeout(() => player.load('https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json'), 300);
+        scoreNumberElement.textContent = score + 1;
+    }
+};
 
 const playAgainEvent = () => {
     const activeChoiceElement = document.querySelector('.gameContent__gameChoice--isActive');
@@ -49,7 +49,7 @@ const playAgainEvent = () => {
     gameChoiceImageElement.removeAttribute('src');
     gameContentElement.classList.remove('gameContent--isActive', 'gameContent--isLost');
     activeChoiceElement.classList.remove('gameContent__gameChoice--isActive');
-}
+};
 
 const startCountdown = () => {
     countdownTextElement.textContent = countdown - 1; //add countdown number to the html
@@ -57,7 +57,8 @@ const startCountdown = () => {
 
     if (countdown) { //start the countdown until we reach 0
         setTimeout(() => startCountdown(), 800);
-    } else { //select random choice when we reach 0
+    }
+    else { //select random choice when we reach 0
         const selectedGameChoiceElement = document.querySelector('.gameContent__gameChoice--isActive');
         const selectedChoice = selectedGameChoiceElement.dataset.choice;
         randomResult = gameChoicesArray[getRandomNumber()];
@@ -69,8 +70,8 @@ const startCountdown = () => {
         gameChoiceComputerElement.classList.add(`gameContent__gameChoice--is${randomResult}`); //set the selected choice style
         gameChoiceImageElement.setAttribute('src', `./images/icon-${randomResult.toLowerCase()}.svg`); //set the selected choice image
         countdown = 4; //reset the countdown number
-    };
-}
+    }
+};
 
 const gameChoiceEvent = (event) => {
     const randomChoice = gameChoicesArray[getRandomNumber()];
