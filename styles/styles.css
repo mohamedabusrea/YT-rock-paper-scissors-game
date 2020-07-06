@@ -268,7 +268,7 @@ img[src=''] {
 @media (max-width: 599px) {
   .gameContent--revealResult {
     --animation-ratio: 1;
-    --game-choice-text-ratio: 1;
+    --game-choice-text-ratio: .8;
   }
 }
 

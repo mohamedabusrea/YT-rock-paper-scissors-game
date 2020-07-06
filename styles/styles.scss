@@ -207,7 +207,7 @@ img[src=''] {
 
         @include mobile {
             --animation-ratio: 1;
-            --game-choice-text-ratio: 1;
+            --game-choice-text-ratio: .8;
         }
 
         .gameContent__result {
