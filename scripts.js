@@ -55,8 +55,8 @@ const startCountdown = () => {
     }
     else { //select random choice and show it
         const selectedGameChoiceElement = document.querySelector('.gameContent__gameChoice--isActive');
-        randomResult = gameChoicesArray[getRandomNumber()];
         const selectedChoice = selectedGameChoiceElement.dataset.choice;
+        randomResult = gameChoicesArray[getRandomNumber()];
 
         showResult(selectedChoice, randomResult);
         setTimeout(() => gameContentElement.classList.add(`gameContent--revealResult`), 500); //delay the final result for half second
