@@ -1,4 +1,5 @@
 @mixin mobile {
+   /*target mobile and fablets screens*/
   @media (max-width: 599px) {
     @content;
   }

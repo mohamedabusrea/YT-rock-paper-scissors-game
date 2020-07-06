@@ -22,8 +22,8 @@
             </div>
         </div>
         <div class="container__content">
-            <div class="container__header">
-                <p class="container__logo">
+            <header class="header">
+                <p class="header__logo">
                     <span>
                         Rock
                     </span>
@@ -34,11 +34,11 @@
                         Scissors
                     </span>
                 </p>
-                <div class="container__scoreContent">
-                    <div class="container__scoreText">score</div>
-                    <div class="container__scoreNumber">0</div>
+                <div class="header__scoreContent">
+                    <p class="header__scoreText">score</p>
+                    <p class="header__scoreNumber">0</p>
                 </div>
-            </div>
+            </header>
             <div class="gameContent">
                 <!-- GAME BACKGROUND-->
                 <div class="gameContent__bg"></div>
@@ -47,27 +47,27 @@
                 <div class="gameContent__text gameContent__text--isComputer">The house picked</div>
                 <!-- GAME CHOICES-->
                 <div class="gameContent__gameChoice gameContent__gameChoice--isPaper" data-choice="Paper">
-                    <div class="gameContent__gameChoiceImageContent">
+                    <div class="gameContent__image">
                         <img src="./images/icon-paper.svg" alt="paper choice">
                     </div>
                 </div>
                 <div class="gameContent__gameChoice gameContent__gameChoice--isScissors" data-choice="Scissors">
-                    <div class="gameContent__gameChoiceImageContent">
+                    <div class="gameContent__image">
                         <img src="./images/icon-scissors.svg" alt="scissors choice">
                     </div>
                 </div>
                 <div class="gameContent__gameChoice gameContent__gameChoice--isRock" data-choice="Rock">
-                    <div class="gameContent__gameChoiceImageContent">
+                    <div class="gameContent__image">
                         <img src="./images/icon-rock.svg" alt="rock choice">
                     </div>
                 </div>
                 <div class="gameContent__gameChoice gameContent__gameChoice--isComputer">
-                    <div class="gameContent__gameChoiceImageContent">
+                    <div class="gameContent__image">
                         <span class="gameContent__countdownText"></span>
                         <img src="" class="gameContent__gameChoiceImage" alt="computer choice" />
                     </div>
                 </div>
-                <div class="gameContent__resultContent">
+                <div class="gameContent__result">
                     <lottie-player src='https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json'
                                    background="transparent"
                                    speed="1"
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div class="container__rules" onclick="rulesButtonEvent">
+        <div class="container__rules">
             Rules
         </div>
     </div>
