@@ -11,3 +11,13 @@
     @content;
   }
 }
+
+@mixin hide-tag {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin show-tag {
+  opacity: 1;
+  visibility: visible;
+}

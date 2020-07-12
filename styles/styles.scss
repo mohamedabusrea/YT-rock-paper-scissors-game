@@ -123,13 +123,11 @@ img[src=''] {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    opacity: 0;
-    visibility: hidden;
     transition: all var(--timing-animation); //animation
+    @include hide-tag;
 
     &--isActive {
-        opacity: 1;
-        visibility: visible;
+        @include show-tag;
     }
 
     &__overlay {
@@ -190,14 +188,12 @@ img[src=''] {
     &--isActive {
         .gameContent__gameChoice,
         .gameContent__bg {
-            opacity: 0;
-            visibility: hidden;
+            @include hide-tag;
         }
 
         .gameContent__text,
         .gameContent__gameChoice--isComputer {
-            opacity: 1;
-            visibility: visible;
+            @include show-tag;
         }
     }
 
@@ -211,8 +207,7 @@ img[src=''] {
         }
 
         .gameContent__result {
-            opacity: 1;
-            visibility: visible;
+            @include show-tag;
             transform: scale(1);
 
             @include mobile {
@@ -239,9 +234,8 @@ img[src=''] {
         text-transform: uppercase;
         font-size: var(--font-size-large);
         font-weight: var(--font-weight-semi-bold);
-        opacity: 0;
-        visibility: hidden;
         transition: all var(--timing-animation);//animation
+        @include hide-tag;
 
         &--isYou {
             transform: translate(calc(var(--game-choice-ratio) * var(--game-choice-text-ratio) * -1), 0);
@@ -293,12 +287,12 @@ img[src=''] {
         &:active {
             .container__gameChoiceImage {
                 &::before {
-                    opacity: 0;
+                    @include hide-tag;
                 }
             }
 
             &::after {
-                opacity: 0;
+                @include hide-tag;
             }
         }
 
@@ -339,8 +333,7 @@ img[src=''] {
         }
 
         &--isComputer {
-            opacity: 0;
-            visibility: hidden;
+            @include hide-tag;
             transform: scale(var(--game-choice-active-scale)) translate(calc(var(--game-choice-x-position) * var(--animation-ratio)), 75px);
             transition: all var(--timing-animation); //animation
             pointer-events: none;
@@ -382,10 +375,9 @@ img[src=''] {
         align-items: center;
         text-transform: uppercase;
         justify-content: center;
-        opacity: 0;
-        visibility: hidden;
         transform: scale(.5);
         transition: all var(--timing-animation); //animation
+        @include hide-tag;
     }
 
     &__resultText {

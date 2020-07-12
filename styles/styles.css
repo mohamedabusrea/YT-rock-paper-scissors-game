@@ -159,10 +159,10 @@ img[src=''] {
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 1;
-  opacity: 0;
-  visibility: hidden;
   -webkit-transition: all var(--timing-animation);
   transition: all var(--timing-animation);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .modal--isActive {
@@ -308,10 +308,10 @@ img[src=''] {
   text-transform: uppercase;
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-semi-bold);
-  opacity: 0;
-  visibility: hidden;
   -webkit-transition: all var(--timing-animation);
   transition: all var(--timing-animation);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .gameContent__text--isYou {
@@ -372,10 +372,12 @@ img[src=''] {
 
 .gameContent__gameChoice:active .container__gameChoiceImage::before {
   opacity: 0;
+  visibility: hidden;
 }
 
 .gameContent__gameChoice:active::after {
   opacity: 0;
+  visibility: hidden;
 }
 
 .gameContent__gameChoice--isPaper {
@@ -483,12 +485,12 @@ img[src=''] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  opacity: 0;
-  visibility: hidden;
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
   -webkit-transition: all var(--timing-animation);
   transition: all var(--timing-animation);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .gameContent__resultText {

@@ -1,3 +1,4 @@
+//Variables
 const gameChoicesArray = ['Paper', 'Scissors', 'Rock'];
 const rulesElement = document.querySelector('.container__rules');
 const scoreNumberElement = document.querySelector('.header__scoreNumber');
@@ -62,8 +63,10 @@ const startCountdown = () => {
         setTimeout(() => gameContentElement.classList.add(`gameContent--revealResult`), 500); //delay the final result for half second
 
         countdownTextElement.textContent = '';
-        gameChoiceComputerElement.classList.add(`gameContent__gameChoice--is${randomResult}`); //set the selected choice style
-        gameChoiceImageElement.setAttribute('src', `./images/icon-${randomResult.toLowerCase()}.svg`); //set the selected choice image
+        //set the selected choice style
+        gameChoiceComputerElement.classList.add(`gameContent__gameChoice--is${randomResult}`);
+        //set the selected choice image
+        gameChoiceImageElement.setAttribute('src', `./images/icon-${randomResult.toLowerCase()}.svg`);
         countdown = 4; //reset the countdown number
     }
 };
