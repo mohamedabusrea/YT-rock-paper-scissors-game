@@ -457,6 +457,7 @@ img[src=''] {
   height: 100%;
   position: relative;
   background-color: white;
+  pointer-events: none;
 }
 
 .gameContent__image:before {
